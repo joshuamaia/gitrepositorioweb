@@ -7,6 +7,7 @@ export default function Main() {
     <Title error={false}>
       Main
       <small>menor</small>
+      <small>menor</small>
     </Title>
   );
 }
