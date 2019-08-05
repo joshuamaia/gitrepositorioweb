@@ -104,7 +104,7 @@ export default class Main extends Component {
                 <SubmitButton
                   onClick={() => this.handleDeleteRepository(repository)}
                 >
-                  <FaMinus />
+                  <FaMinus color="#FFF" size={14} />
                 </SubmitButton>
               </div>
             </li>
