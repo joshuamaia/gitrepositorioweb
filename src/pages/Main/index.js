@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FaGithubAlt, FaPlus, FaSpinner } from 'react-icons/fa';
+import { FaGithubAlt, FaPlus, FaMinus, FaSpinner } from 'react-icons/fa';
 
 import api from '../../services/api';
 import { Container, Form, SubmitButton, List } from './styles';
@@ -31,6 +31,14 @@ export default class Main extends Component {
     this.setState({ newRepo: e.target.value });
   };
 
+  handleDeleteRepository = repository => {
+    const { repositories } = this.state;
+
+    this.setState({
+      repositories: repositories.filter(r => r !== repository),
+    });
+  };
+
   handleSubmit = async e => {
     e.preventDefault();
 
@@ -40,8 +48,11 @@ export default class Main extends Component {
 
     const response = await api.get(`/repos/${newRepo}`);
 
+    // console.log(response.data);
+
     const data = {
       name: response.data.full_name,
+      avatar: response.data.owner.avatar_url,
     };
 
     this.setState({
@@ -81,8 +92,18 @@ export default class Main extends Component {
         <List>
           {repositories.map(repository => (
             <li key={repository.name}>
-              <span>{repository.name}</span>
-              <a href="">Detalhes</a>
+              <div>
+                <img src={repository.avatar} alt="Avatar" />
+                <span>{repository.name}</span>
+              </div>
+              <div>
+                <a href="">Detalhes</a>
+                <SubmitButton
+                  onClick={() => this.handleDeleteRepository(repository)}
+                >
+                  <FaMinus />
+                </SubmitButton>
+              </div>
             </li>
           ))}
         </List>

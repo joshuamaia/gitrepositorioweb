@@ -75,6 +75,12 @@ export const List = styled.ul`
   list-style: none;
   margin-top: 30px;
 
+  img {
+    margin-right: 5px;
+    width: 25px;
+    height: 25px;
+  }
+
   li {
     padding: 15px 0;
 
@@ -82,6 +88,13 @@ export const List = styled.ul`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
 
     & + li {
       border-top: 1px solid #eee;
