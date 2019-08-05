@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { FaGithubAlt, FaPlus, FaMinus, FaSpinner } from 'react-icons/fa';
 
 import api from '../../services/api';
@@ -97,7 +98,9 @@ export default class Main extends Component {
                 <span>{repository.name}</span>
               </div>
               <div>
-                <a href="">Detalhes</a>
+                <Link to={`/repository/${encodeURIComponent(repository.name)}`}>
+                  Detalhes
+                </Link>
                 <SubmitButton
                   onClick={() => this.handleDeleteRepository(repository)}
                 >
