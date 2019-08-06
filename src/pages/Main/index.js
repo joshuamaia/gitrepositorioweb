@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { FaGithubAlt, FaPlus, FaMinus, FaSpinner } from 'react-icons/fa';
 
 import api from '../../services/api';
-import { Container, Form, SubmitButton, List } from './styles';
+import { Form, SubmitButton, List } from './styles';
+import Container from '../../components/Container';
 
 export default class Main extends Component {
   state = {
@@ -94,7 +95,7 @@ export default class Main extends Component {
           {repositories.map(repository => (
             <li key={repository.name}>
               <div>
-                <img src={repository.avatar} alt="Avatar" />
+                <img src={repository.avatar} alt={repository.name} />
                 <span>{repository.name}</span>
               </div>
               <div>
