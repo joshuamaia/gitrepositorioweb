@@ -57,8 +57,10 @@ export const List = styled.ul`
 
   img {
     margin-right: 5px;
-    width: 25px;
-    height: 25px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid #eee;
   }
 
   li {
